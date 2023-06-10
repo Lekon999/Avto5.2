@@ -5,8 +5,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.time.Duration;
-
 import static com.codeborne.selenide.Selenide.*;
 import static ru.netology.testmode.data.Data.Registration.getRegisteredUser;
 import static ru.netology.testmode.data.Data.Registration.getUser;
