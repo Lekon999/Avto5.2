@@ -13,7 +13,7 @@ import static ru.netology.testmode.data.Data.Registration.getUser;
 import static ru.netology.testmode.data.Data.getRandomLogin;
 import static ru.netology.testmode.data.Data.getRandomPassword;
 
-class DataTest {
+class AuthTest {
 
     @BeforeEach
     void setup() {
@@ -29,6 +29,9 @@ class DataTest {
         $$("[class='button__text']").find(Condition.exactText("Продолжить")).click();
         $("h2").shouldHave(Condition.text("Личный кабинет")).shouldBe(Condition.visible);
 
+        // TODO: добавить логику теста, в рамках которого будет выполнена попытка входа в личный кабинет с учётными
+        //  данными зарегистрированного активного пользователя, для заполнения полей формы используйте
+        //  пользователя registeredUser
     }
 
     @Test
@@ -40,6 +43,8 @@ class DataTest {
         $$("[class='button__text']").find(Condition.exactText("Продолжить")).click();
         $("div.notification__content").shouldHave(Condition.text("Неверно указан логин или пароль")).shouldBe(Condition.visible);
 
+        // TODO: добавить логику теста в рамках которого будет выполнена попытка входа в личный кабинет
+        //  незарегистрированного пользователя, для заполнения полей формы используйте пользователя notRegisteredUser
     }
 
     @Test
@@ -51,6 +56,8 @@ class DataTest {
         $$("[class='button__text']").find(Condition.exactText("Продолжить")).click();
         $("div.notification__content").shouldHave(Condition.text("Пользователь заблокирован")).shouldBe(Condition.visible);
 
+        // TODO: добавить логику теста в рамках которого будет выполнена попытка входа в личный кабинет,
+        //  заблокированного пользователя, для заполнения полей формы используйте пользователя blockedUser
     }
 
     @Test
@@ -63,6 +70,9 @@ class DataTest {
         $$("[class='button__text']").find(Condition.exactText("Продолжить")).click();
         $("div.notification__content").shouldHave(Condition.text("Неверно указан логин или пароль")).shouldBe(Condition.visible);
 
+        // TODO: добавить логику теста в рамках которого будет выполнена попытка входа в личный кабинет с неверным
+        //  логином, для заполнения поля формы "Логин" используйте переменную wrongLogin,
+        //  "Пароль" - пользователя registeredUser
     }
 
     @Test
@@ -75,5 +85,8 @@ class DataTest {
         $$("[class='button__text']").find(Condition.exactText("Продолжить")).click();
         $("div.notification__content").shouldHave(Condition.text("Неверно указан логин или пароль")).shouldBe(Condition.visible);
 
+        // TODO: добавить логику теста в рамках которого будет выполнена попытка входа в личный кабинет с неверным
+        //  паролем, для заполнения поля формы "Логин" используйте пользователя registeredUser,
+        //  "Пароль" - переменную wrongPassword
     }
 }

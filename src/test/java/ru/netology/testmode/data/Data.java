@@ -34,14 +34,21 @@ public class Data {
                 .post("/api/system/users") // на какой путь относительно BaseUri отправляем запрос
                 .then() // "тогда ожидаем"
                 .statusCode(200); // код 200 OK
+        // TODO: отправить запрос на указанный в требованиях path, передав в body запроса объект user
+        //  и не забудьте передать подготовленную спецификацию requestSpec.
+        //  Пример реализации метода показан в условии к задаче.
     }
 
     public static String getRandomLogin() {
         String login = faker.name().username();
+        // TODO: добавить логику для объявления переменной login и задания её значения, для генерации
+        //  случайного логина используйте faker
         return login;
     }
 
     public static String getRandomPassword() {
+        // TODO: добавить логику для объявления переменной password и задания её значения, для генерации
+        //  случайного пароля используйте faker
         return faker.internet().password();
     }
 
@@ -51,12 +58,15 @@ public class Data {
 
         public static RegistrationDto getUser(String status) {
             var user = new RegistrationDto(getRandomLogin(), getRandomPassword(), status);
+            // TODO: создать пользователя user используя методы getRandomLogin(), getRandomPassword() и параметр status
             return user;
         }
 
         public static RegistrationDto getRegisteredUser(String status) {
             var registeredUser = getUser(status);
             sendRequest(registeredUser);
+            // TODO: объявить переменную registeredUser и присвоить ей значение возвращённое getUser(status).
+            // Послать запрос на регистрацию пользователя с помощью вызова sendRequest(registeredUser)
             return registeredUser;
         }
     }
