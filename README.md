@@ -1,0 +1,1 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/tmoxa502ae0q0o0c?svg=true)](https://ci.appveyor.com/project/Lekon999/avto5-2)
